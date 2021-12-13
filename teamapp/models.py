@@ -7,7 +7,7 @@ from django.utils import timezone
 # Create your models here.
 
 def post(request):
-    if request.method='POST':
+    if request.method == 'POST':
         article = Article(body=request.POST['text'], img =request.POST['Article-image'])
         article.save()
     return  render(request, 'teamapp/post.html')
