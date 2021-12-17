@@ -3,7 +3,8 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('post',views.post, name='post'),
+    path('post',views.post),
+
     path('<int:article_id>/update', views.update, name='update'),
     path('hello', views.hello, name='hello'),
     path('redirect', views.redirect_test, name='redirect_test'),
