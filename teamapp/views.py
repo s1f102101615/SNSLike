@@ -22,4 +22,5 @@ def post(request):
     if request.method == 'POST':
         article = Article(body=request.POST['text'], img=request.POST['Article-image'])
         article.save()
-        return redirect(index, article)
+        return redirect(index, article.id)
+    return render(request, 'teamapp/post.html')
