@@ -10,7 +10,37 @@
 </head>
 
 <body>
-    <h2>aaaaa</h2>
-</body>
+    <div id="header">
+      <img src="{% static 'blog/img/iniad.png' %}" alt="Logo">
+    </div>
+    <h1>team project</h1>
+    <p></p>
+    
 
-</html>
+    <br>
+    <div>
+      <a href="{% url 'index' %}?sort=date">Sort by Date</a>
+      <a href="{% url 'index' %}?sort=like">Sort by Like</a>
+      <a href="{% url 'post' %}">投稿</a>
+    
+    </div>
+    {% if articles %}
+    {% for article in articles %}
+    <div class="text">
+    <h2><a href="{% url 'detail' article.id %}">{{ article.title }}</a></h2>
+    <small>[{{ article.posted_at }}]</small>
+    <div>
+      <a href="{% url 'like' article.id %}">
+        Like: {{ article.like }}
+      </a>
+    </div>
+    <div>
+      {{ article.body | linebreaksbr }}
+    </div></div>
+    {% endfor %}
+    {% else %}
+    <h2>No article.</h2>
+    {% endif %}
+    
+  </body>
+</html>>
