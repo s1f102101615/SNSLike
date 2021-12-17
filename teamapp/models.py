@@ -4,12 +4,6 @@ from django.http import HttpResponse
 from django.utils import timezone
 # Create your models here.
 
-def post(request):
-    if request.method == 'POST':
-        article = Article(body=request.POST['text'], img =request.POST['Article-image'])
-        article.save()
-    return  render(request, 'teamapp/post.html')
-
 class Article(models.Model):
     #img = models.ImageField(upload_to='/Article-image')
     # title = models.CharField(max_length=200)
