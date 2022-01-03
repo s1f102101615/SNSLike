@@ -31,13 +31,15 @@ def post(request):
         #article.save()
         #return redirect(index)
         form = Goto_form(request.FILES,request.POST)
+        if not request.FILES:
+            return redirect('post')
         article = Article()
         print(request)
         article.image = request.FILES['image']
-        if request.FILES:
+        if request.POST:
             article.body = request.POST['body']
         article.save()
-        return redirect('index', article.id)
+        return redirect('index')
     return render(request, 'teamapp/post.html', {'form': form})
 
 def like(request, article_id):
