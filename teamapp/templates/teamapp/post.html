@@ -13,7 +13,8 @@
     
       <h1>team project</h1>
       <p>You can submit articles from the following form.</p>
-      <form action="{% url 'post' %}" method="post">
+      <form action="{% url 'post' %}" class="post-form" method="post" enctype="multipart/form-data">
+        {{ form.as_p }}
         {% csrf_token %}
         <!--
         <div>
@@ -26,7 +27,7 @@
           <textarea id="textInput" name="text" rows="3"></textarea>
         </div>
         <div>
-          <button type="submit">Submit</button>
+          <button type="submit" class="save btn btn-default">Submit</button>
         </div>
       </form>
   </body></html>

@@ -24,9 +24,17 @@ def index(request):
 def post(request):
     if request.method == 'POST':
         #article = Article(body=request.POST['text'], img=request.POST['Article-image'])
-        article = Article(body=request.POST['text'])
-        article.save()
-        return redirect(index)
+        #article = Article(body=request.POST['text'])
+        #article.save()
+        #return redirect(index)
+        form = Goto_form(request.POST)
+        if form.is_valid():
+            article = Article()
+            print(request)
+            article.image = request.FILES['image']
+            article.body = request.POST['body']
+            article.save()
+            return redirect('index', pk=article.pk)
     return render(request, 'teamapp/post.html')
 
 def like(request, article_id):

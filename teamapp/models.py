@@ -5,7 +5,7 @@ from django.utils import timezone
 # Create your models here.
 
 class Article(models.Model):
-    #img = models.ImageField(upload_to='/Article-image')
+    image = models.ImageField(upload_to='Article-image',blank=True, null=True)
     # title = models.CharField(max_length=200)
     body = models.TextField()
     posted_at = models.DateTimeField(default=timezone.now)
