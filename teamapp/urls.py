@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.conf import settings
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -12,5 +13,3 @@ urlpatterns = [
     #path('<int:article_id>/like',views.like, name='like'),
     #path('api/articles/<int:article_id>/like',views.api_like),
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.IMAGE_URL, document_root=settings.IMAGE_ROOT)

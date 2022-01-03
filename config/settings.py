@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-dzjy-7nmob&=3j89rydp461#=f!_i&zv8=t5)8ewc0+h031z5p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True 
 
 ALLOWED_HOSTS = []
 
@@ -125,7 +125,9 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+ 
 # 投稿画像のパス
 IMAGE_ROOT = os.path.join(BASE_DIR, 'Article-image')
 IMAGE_URL = '/Article-image/'
+
+

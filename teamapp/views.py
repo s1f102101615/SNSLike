@@ -3,6 +3,7 @@ from teamapp.models import Article, Comment
 from django.http import Http404, JsonResponse
 from django.http import HttpResponse
 from django.utils import timezone
+from .forms import Goto_form
 # Create your views here.
 
 def index(request):
@@ -13,29 +14,31 @@ def index(request):
             articles = Article.objects.order_by('-posted_at')
     else:
         articles = Article.objects.order_by('-posted_at')
-
+    form = Goto_form()
     context = {
-        "articles": articles
+        "articles": articles,
+        "form":form
     }
     
     return render(request, 'teamapp/index.html', context)
 
 
 def post(request):
+    form = Goto_form()
     if request.method == 'POST':
         #article = Article(body=request.POST['text'], img=request.POST['Article-image'])
         #article = Article(body=request.POST['text'])
         #article.save()
         #return redirect(index)
-        form = Goto_form(request.POST)
-        if form.is_valid():
-            article = Article()
-            print(request)
-            article.image = request.FILES['image']
+        form = Goto_form(request.FILES,request.POST)
+        article = Article()
+        print(request)
+        article.image = request.FILES['image']
+        if request.FILES:
             article.body = request.POST['body']
-            article.save()
-            return redirect('index', pk=article.pk)
-    return render(request, 'teamapp/post.html')
+        article.save()
+        return redirect('index', article.id)
+    return render(request, 'teamapp/post.html', {'form': form})
 
 def like(request, article_id):
     try:

@@ -13,21 +13,16 @@
     
       <h1>team project</h1>
       <p>You can submit articles from the following form.</p>
-      <form action="{% url 'post' %}" class="post-form" method="post" enctype="multipart/form-data">
-        {{ form.as_p }}
+
+      <form action="{% url 'post' %}" class="post-form" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <!--
-        <div>
-          <label for="titleInput">Title</label><br>
-          <input id="titleInput" name="title" type="text" placeholder="Input title">
-        </div>
-        -->
+        {{ form.as_p }}
         <div>
           <label for="textInput">Text</label><br>
           <textarea id="textInput" name="text" rows="3"></textarea>
         </div>
         <div>
           <button type="submit" class="save btn btn-default">Submit</button>
-        </div>
+        </div>    
       </form>
   </body></html>

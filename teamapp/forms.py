@@ -1,9 +1,9 @@
-from .models import Article, Comment
+from .models import Article
 from django import forms
 
-
 class Goto_form(forms.ModelForm):
-
-    class Meta:
-        model = goto
-        fields = ('image','text')
+    class Meta: 
+        model=Article
+        fields = ('image','body')
+    #class Meta:
+        ##fields = ('image','body')
