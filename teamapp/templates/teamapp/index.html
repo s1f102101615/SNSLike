@@ -24,11 +24,10 @@
     {% if articles %}
     {% for article in articles %}
     <div class="text">
-    <h2><a href="{% url 'detail' article.id %}">{{ article.title }}</a></h2>
     <small>[{{ article.posted_at }}]</small>
     <div>
-      <a href="{% url 'like' article.id %}">
-        Like: {{ article.like }}
+      <a href="" onclick="like({{article.id}});">
+        Like: <span id="like{{article.id}}">{{ article.like }}</span>
       </a>
     </div>
     <div>
