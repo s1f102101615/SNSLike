@@ -45,7 +45,6 @@ def post(request):
         if not request.FILES:
             return redirect('post')
         article = Article()
-        print(request)
         article.image = request.FILES['image']
         if request.POST:
             article.body = request.POST['body']

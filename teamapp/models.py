@@ -12,6 +12,8 @@ class Article(models.Model):
     posted_at = models.DateTimeField(default=timezone.now)
     ## published_at = models.DateTimeField(blank=True, null=True)
     like = models.IntegerField(default=0)
+    post_user = models.TextField(max_length=150)
+    
     #def publish(self):
         #self.published_at = timezone.now()
         #self.save()
