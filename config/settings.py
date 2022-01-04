@@ -17,7 +17,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 #アカウント追加
-MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+MEDIA_DIR = os.path.join(BASE_DIR, '')
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = "/media/"
 STATIC_DIR = os.path.join(BASE_DIR,"static")
