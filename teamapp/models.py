@@ -2,6 +2,7 @@ from django.db import models
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.utils import timezone
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Article(models.Model):
@@ -20,3 +21,15 @@ class Comment(models.Model):
     text = models.TextField()
     posted_at = models.DateTimeField(default=timezone.now)
     article = models.ForeignKey(Article, related_name='comments', on_delete=models.CASCADE)
+
+#アカウント追加
+class Account(models.Model):
+
+    # ユーザー認証のインスタンス(1vs1関係)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    #アカウント画像
+    account_image = models.ImageField(upload_to="profile_pics",blank=True)
+
+    def __str__(self):
+        return self.user.username
