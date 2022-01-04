@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from teamapp.models import Article, Comment
+from teamapp.models import Account, Article, Comment
 from django.http import Http404, JsonResponse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
@@ -49,6 +49,8 @@ def post(request):
         article.image = request.FILES['image']
         if request.POST:
             article.body = request.POST['body']
+        #アカウント    
+        article.post_user = request.user
         article.save()
         return redirect('index')
     return render(request, 'teamapp/post.html', {'form': form,'UserID': request.user})

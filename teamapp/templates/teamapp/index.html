@@ -36,6 +36,12 @@
     {% if articles %}
     {% for article in articles %}
     <div class="text">
+    <!--アカウント追加-->
+    <div>
+    {% if article.post_user %}
+    {{ article.post_user }}
+    {% endif %}
+    </div>
     <small>[{{ article.posted_at }}]</small>
     <div>
       <a href="" onclick="like({{article.id}});">
