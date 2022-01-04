@@ -30,6 +30,9 @@ def index(request):
 
 
 def post(request):
+    if request.method == 'GET':
+        if request.user.is_anonymous:
+            return redirect('index')
     #if  None == user:
         #return redirect('index')
     form = Goto_form()
@@ -48,7 +51,7 @@ def post(request):
             article.body = request.POST['body']
         article.save()
         return redirect('index')
-    return render(request, 'teamapp/post.html', {'form': form})
+    return render(request, 'teamapp/post.html', {'form': form,'UserID': request.user})
 
 def like(request, article_id):
     try:
@@ -149,6 +152,6 @@ def Login(request):
 def Logout(request):
     logout(request)
     # ログイン画面遷移
-    return HttpResponseRedirect(reverse('Login'))
+    return HttpResponseRedirect(reverse('index'))
 
 
