@@ -111,6 +111,7 @@ class  AccountRegistration(TemplateView):
 
             # アカウント作成情報更新
             self.params["AccountCreate"] = True
+            return redirect('Login')
 
         else:
             # フォームが有効でない場合
