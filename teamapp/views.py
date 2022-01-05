@@ -32,7 +32,7 @@ def index(request):
 def post(request):
     if request.method == 'GET':
         if request.user.is_anonymous:
-            return redirect('index')
+            return redirect('registration')
     #if  None == user:
         #return redirect('index')
     form = Goto_form()
