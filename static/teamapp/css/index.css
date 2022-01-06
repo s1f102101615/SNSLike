@@ -138,3 +138,11 @@ footer li {
 html {
     scroll-behavior: smooth;
 }
+
+#heart {
+    font-size: 35px;
+}
+
+#down {
+    font-size: auto;
+}

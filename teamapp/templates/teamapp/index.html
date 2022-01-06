@@ -50,7 +50,7 @@
       {% endif %}</div>
       <div class="blockright">
       <ul class="menu">
-        <li><a href="">並び順</a>
+        <li><a href="">並び順    <i class="fas fa-chevron-down" id="down"></i></a>
            <ul>
             <li class="rightyose"><a href="{% url 'index' %}?sort=date">投稿順</a></li>
             <li class="rightyose"><a href="{% url 'index' %}?sort=like">いいね順</a></li>
@@ -78,7 +78,7 @@
       {{ article.body | linebreaksbr }}
     </div></div>
     <a href="" onclick="like({{article.id}});">
-      Like: <span id="like{{article.id}}">{{ article.like }}</span>
+      <i class="fas fa-heart" id="heart"></i><span id="{{article.id}}">{{ article.like }}</span>
     </a>
     {% endfor %}
     {% else %}
