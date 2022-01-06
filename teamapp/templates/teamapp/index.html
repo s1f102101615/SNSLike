@@ -31,6 +31,7 @@
       {% if user.is_anonymous %}
       <li class="rightyose"><font color="006CC9">ゲスト</font></li>
       {% else %}
+      <li class="rightyose"><img class="icon-size" src=/icon-mage/{{ icon }} alt=""></li>
       <li class="rightyose"><font color="006CC9"><a href="{% url 'userpage'%}?userpageid={{ UserID }}">{{ UserID }}</font></a></li>
       {% endif %}
       <li class="rightyose"><a href="{% url 'post' %}"><i class="fas fa-pen"></i></a></li>
@@ -43,7 +44,6 @@
     </ul>
   </footer>
     <p></p>
-    
 
     <br>
     <div class="textfont">
@@ -82,7 +82,8 @@
     </div></div>
     {% endfor %}
     {% else %}
-    <h2>No article</h2>
+    <h2>まだ誰も投稿していません！ 
+    </h2>
     {% endif %}
   </div>
   <a href="{% url 'index' %}" id="page-top">topへ</a>

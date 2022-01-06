@@ -14,6 +14,7 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     if ('sort' in request.GET):
         if request.GET['sort'] == 'like':
+            
             articles = Article.objects.order_by('-like')
         else:
             articles = Article.objects.order_by('-posted_at')
