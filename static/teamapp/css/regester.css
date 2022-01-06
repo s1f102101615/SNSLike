@@ -24,5 +24,29 @@ h1{
   
   .btn:hover{
     color: #fff;
-    background: #000099;
+    background: #6060f3;
   }
+
+  h1.footerlogo{margin-top: 0%;
+    padding-top: 0%;
+    float: left;
+    font-family: 'Sofia', cursive;
+}
+
+footer {
+    
+    background: linear-gradient(125deg, #CBD5EE, #EEEEEE);
+    
+    padding:4rem 0;
+
+}
+
+.clearfix {
+  content: "";
+  display: block;
+  clear: both;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
