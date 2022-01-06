@@ -64,6 +64,18 @@ def like(request, article_id):
         
     return redirect(index, article_id)
 
+def api_like(request,article_id):
+    try:
+        article=Article.objects.get(pk=article_id)
+        article.like+=1
+        article.save()
+    except Article.DoesNotExist:
+        raise Http404("Article does not exist")
+    result={
+        'id': article_id,
+        'like': article.like
+    }
+    return JsonResponse(result)
 
 #アカウント新規登録
 class  AccountRegistration(TemplateView):

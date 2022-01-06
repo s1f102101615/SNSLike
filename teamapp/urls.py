@@ -9,5 +9,5 @@ urlpatterns = [
     path('Login',views.Login,name='Login'),
     path("Logout",views.Logout,name="Logout"),
     path('<int:article_id>/like',views.like, name='like'),
-
+    path('api/articles/<int:article_id>/like',views.api_like),
 ]
