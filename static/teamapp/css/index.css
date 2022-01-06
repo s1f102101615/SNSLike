@@ -159,6 +159,9 @@ html {
     max-width: 700px;
     width: 70%;
 }
+.icon-size{
+    max-width: 28px;
+}
 
 .like:hover {
     color: crimson;
