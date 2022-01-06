@@ -62,24 +62,24 @@
     {% for article in articles %}
     <div class="text">
     <!--アカウント追加-->
-    <div>
+    <div class="bordersolid">
     {% if article.post_user %}
     {{ article.post_user }}
     {% endif %}
-    </div>
+    
     <small>[{{ article.posted_at }}]</small>
+    
     <div>
-      
-    </div>
-    <div>
-      <img src={{ article.image }} alt="">
+      <img class="img-size" src={{ article.image }} alt="">
     </div>
     <div>
       {{ article.body | linebreaksbr }}
-    </div></div>
+    </div>
     <a href="" onclick="like({{article.id}});">
       <i class="fas fa-heart" id="heart"></i><span id="{{article.id}}">{{ article.like }}</span>
     </a>
+      
+    </div></div>
     {% endfor %}
     {% else %}
     <h2>No article</h2>
