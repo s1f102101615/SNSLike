@@ -50,3 +50,9 @@ footer {
   padding-right: 1rem;
   padding-left: 1rem;
 }
+
+.textfont {
+  font-family: kinto-sans,sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}

@@ -55,3 +55,8 @@ footer {
   padding:4rem 0;
 
 }
+.textfont {
+  font-family: kinto-sans,sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
