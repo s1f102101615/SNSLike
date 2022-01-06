@@ -29,7 +29,7 @@
     <a href="{% url 'index' %}"><h1 class="footerlogo">Team project</h1></a>
     <ul class="footer-nav" style="margin-top: 6px;" >
       {% if user.is_anonymous %}
-      <li class="rightyose"><font color="006CC9">ゲスト</font></li>
+      <li class="rightyose"><font color="006CC9"><a href=""> ゲスト</a></font></li>
       {% else %}
       <li class="rightyose"><img class="icon-size" src=/icon-mage/{{ icon }} alt=""></li>
       <li class="rightyose"><font color="006CC9"><a href="{% url 'userpage'%}?userpageid={{ UserID }}">{{ UserID }}</font></a></li>
