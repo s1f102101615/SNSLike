@@ -94,7 +94,7 @@ footer li {
  }
 
  a:hover {
-     color: blanchedalmond;
+     color: brown;
  }
  footer a {
      text-decoration: none;
@@ -116,8 +116,9 @@ footer li {
     transition: 1s;
  }
 
- .footer-nav:active {
-     transform: scale(1.1);
+ .rightyose:active {
+     transition: 00.5s;
+     transform: scale(1.2);
  }
 
 #page-top {
