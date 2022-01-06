@@ -5,24 +5,35 @@
 <head>
     <title>title</title>
     <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet">
     <link href="{% static 'teamapp/css/index.css' %}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script type="text/javascript" src="{% static 'teamapp/js/index.js' %}" ></script>
     <script src="https://kit.fontawesome.com/89aa44206f.js" crossorigin="anonymous"></script>
-</head>
+    <script>
+      (function(d) {
+        var config = {
+          kitId: 'opa6qnt',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
+  </head>
 
 <body>
   <footer class="clearfix">
     <h1 class="footerlogo">team project</h1>
     <ul class="footer-nav">
       <li class="rightyose"><a href="{% url 'post' %}"><i class="fas fa-pen"></i></a></li>
-      <li class="rightyose"><a href="{% url 'index' %}?sort=date">Sort by Date</a></li>
-      <li class="rightyose"><a href="{% url 'index' %}?sort=like">Sort by Like</a></li>
       <li class="rightyose"><a href="{% url 'registration' %}">新規登録</a></li>
       {% if user.is_anonymous %}
       <a href="{% url 'Login' %}">ログイン</a>
       {% else %}
+      <a href="{% url 'Logout' %}">ログアウト</a>
       {% endif %}
     </ul>
   </footer>
@@ -31,11 +42,7 @@
 
     <br>
     <div class="textfont">
-      <div class="clearfix">
-      <a href="{% url 'index' %}?sort=date">Sort by Date</a>
-      <a href="{% url 'index' %}?sort=like">Sort by Like</a>
-      <a href="{% url 'post' %}">投稿</a>
-      <a href="{% url 'registration' %}">新規登録</a>
+      <div class="blockleft">
       {% if user.is_anonymous %}
       <a href="{% url 'Login' %}">ログイン</a>
       {% else %}
@@ -44,10 +51,17 @@
       <h1><font color="red">ゲスト</font>さんようこそ！！</h1>
       {% else %}
       <h1><font color="red">{{ UserID }}</font>さんようこそ！！</h1>
-      <p> ログアウトは
-        <a href="{% url 'Logout' %}">こちら</a>
-        </p>
-      {% endif %}
+     
+      {% endif %}</div>
+      <div class="blockright">
+      <ul class="menu">
+        <li><a href="">並び順</a>
+           <ul>
+            <li class="rightyose"><a href="{% url 'index' %}?sort=date">投稿順</a></li>
+            <li class="rightyose"><a href="{% url 'index' %}?sort=like">いいね順</a></li>
+           </ul>
+        </li>
+      </ul>
     </div>
     {% if articles %}
     {% for article in articles %}
@@ -73,8 +87,9 @@
     </a>
     {% endfor %}
     {% else %}
-    <h2>No article.</h2>
+    <h2>No article</h2>
     {% endif %}
   </div>
+  <a href="{% url 'index' %}" id="page-top">topへ</a>
   </body>
 </html>
