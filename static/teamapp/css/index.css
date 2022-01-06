@@ -47,12 +47,12 @@ footer ul {
     display: flex;
     margin-bottom: 0;
     list-style: none;
-    margin-top: 0.5cm;
+    margin-top: 0cm;
     float: right ;
 }
 
 footer li {
-    margin: 0 12px;
+    margin: 0 12;
     
 }
 

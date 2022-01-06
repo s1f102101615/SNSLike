@@ -56,3 +56,15 @@ footer {
   font-weight: 500;
   font-style: normal;
 }
+
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+footer a:hover {
+  color: brown;
+}

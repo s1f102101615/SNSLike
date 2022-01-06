@@ -27,7 +27,7 @@
 <body>
   <footer class="clearfix">
     <a href="{% url 'index' %}"><h1 class="footerlogo">Team project</h1></a>
-    <ul class="footer-nav">
+    <ul class="footer-nav" style="margin-top: 6px;">
       {% if user.is_anonymous %}
       <li class="rightyose"><font color="006CC9">ゲスト</font></li>
       {% else %}
