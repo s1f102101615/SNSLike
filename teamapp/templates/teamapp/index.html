@@ -26,8 +26,13 @@
 
 <body>
   <footer class="clearfix">
-    <h1 class="footerlogo">Team project</h1>
+    <a href="{% url 'index' %}"><h1 class="footerlogo">Team project</h1></a>
     <ul class="footer-nav">
+      {% if user.is_anonymous %}
+      <li class="rightyose"><font color="006CC9">ゲスト</font></li>
+      {% else %}
+      <li class="rightyose"><font color="006CC9"><a href="{% url 'userpage'%}?userpageid={{article.post_user}}">{{ UserID }}</font></a></li>
+      {% endif %}
       <li class="rightyose"><a href="{% url 'post' %}"><i class="fas fa-pen"></i></a></li>
       <li class="rightyose"><a href="{% url 'registration' %}">新規登録</a></li>
       {% if user.is_anonymous %}
@@ -43,13 +48,7 @@
     <br>
     <div class="textfont">
       <div class="blockleft">
-      
-      {% if user.is_anonymous %}
-      <h1><font color="006CC9">ゲスト</font>さんようこそ！！</h1>
-      {% else %}
-      <h1><font color="006CC9">{{ UserID }}</font>さんようこそ！！</h1>
-     
-      {% endif %}</div>
+     </div>
       <div class="blockright">
       <ul class="menu">
         <li><a href="">並び順    <i class="fas fa-chevron-down" id="down"></i></a>
