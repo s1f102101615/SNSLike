@@ -23,11 +23,11 @@
 
 <body>
     <footer class="clearfix">
-      <h1 class="footerlogo">team project</h1>
+      <h1 class="footerlogo">Team project</h1>
     </footer>
     <div class="textfont">
       <p>投稿内容が確定したらsubmitボタンを押してください</p>
-      <h1><font color="red">{{ UserID }}</font>として投稿します。</h1>
+      <h1><font color="006CC9">{{ UserID }}</font>として投稿します。</h1>
       <form action="{% url 'post' %}" class="post-form" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}

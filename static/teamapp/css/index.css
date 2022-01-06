@@ -13,6 +13,7 @@
     clear: both;
     float: left;
     width: 70%;
+    margin-left: 20px;
 }
 .blockright {
     content: "";
@@ -25,6 +26,7 @@
     content: "";
     display: block;
     clear: both;
+    margin-left: 20px;
     
 }
 h1.footerlogo{margin-top: 0%;
