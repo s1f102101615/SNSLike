@@ -34,9 +34,9 @@
       <li class="rightyose"><a href="{% url 'post' %}"><i class="fas fa-pen"></i></a></li>
       <li class="rightyose"><a href="{% url 'registration' %}">新規登録</a></li>
       {% if user.is_anonymous %}
-      <a href="{% url 'Login' %}">ログイン</a>
+      <li class="rightyose"><a href="{% url 'Login' %}">ログイン</a></li>
       {% else %}
-      <a href="{% url 'Logout' %}">ログアウト</a>
+      <li class="rightyose"><a href="{% url 'Logout' %}">ログアウト</a></li>
       {% endif %}
     </ul>
   </footer>
