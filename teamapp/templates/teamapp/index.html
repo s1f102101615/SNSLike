@@ -77,7 +77,7 @@
     <div>
       {{ article.body | linebreaksbr }}
     </div>
-    <a href="" onclick="like({{article.id}});">
+    <a href="" class="like" onclick="like({{article.id}});">
       <i class="fas fa-heart" id="heart"></i><span id="{{article.id}}">{{ article.like }}</span>
     </a>
       
