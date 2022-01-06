@@ -7,12 +7,6 @@
     <meta charset="utf-8">
     <link href="{% static 'teamapp/css/index.css' %}" rel="stylesheet">
     <script type="text/javascript" src="{% static 'teamapp/js/index.js' %}" ></script>
-<<<<<<< Updated upstream
-</head>
-
-<body>
-    <h1>team project</h1>
-=======
     <script src="https://kit.fontawesome.com/89aa44206f.js" crossorigin="anonymous"></script>
     <script>
       (function(d) {
@@ -39,21 +33,12 @@
       {% endif %}
     </ul>
   </footer>
->>>>>>> Stashed changes
     <p></p>
     
 
     <br>
-<<<<<<< Updated upstream
-    <div>
-      <a href="{% url 'index' %}?sort=date">Sort by Date</a>
-      <a href="{% url 'index' %}?sort=like">Sort by Like</a>
-      <a href="{% url 'post' %}">投稿</a>
-      <a href="{% url 'registration' %}">新規登録</a>
-=======
     <div class="textfont">
       <div class="blockleft">
->>>>>>> Stashed changes
       {% if user.is_anonymous %}
       <a href="{% url 'Login' %}">ログイン</a>
       {% else %}
@@ -100,10 +85,7 @@
     {% else %}
     <h2>No article</h2>
     {% endif %}
-<<<<<<< Updated upstream
-=======
   </div>
   <a href="{% url 'index' %}" id="page-top">topへ</a>
->>>>>>> Stashed changes
   </body>
 </html>
