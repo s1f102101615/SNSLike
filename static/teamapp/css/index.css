@@ -21,6 +21,7 @@
     clear: both;
     float: right;
     width: 29%;
+    
 }
 .text {
     content: "";
@@ -49,6 +50,7 @@ footer ul {
     list-style: none;
     margin-top: 0cm;
     float: right ;
+    margin-left:  20px;
 }
 
 footer li {
@@ -106,8 +108,10 @@ footer li {
  }
  .rightyose {
      float: right;
+     margin-left: 40px;
  }
 
+ 
  .textfont {
     font-family: kinto-sans,sans-serif;
     font-weight: 500;
@@ -163,4 +167,8 @@ html {
 .like:hover {
     color: crimson;
 
+}
+
+.menu-rightyose {
+    float: right;
 }
