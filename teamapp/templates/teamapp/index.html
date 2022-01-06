@@ -7,19 +7,53 @@
     <meta charset="utf-8">
     <link href="{% static 'teamapp/css/index.css' %}" rel="stylesheet">
     <script type="text/javascript" src="{% static 'teamapp/js/index.js' %}" ></script>
+<<<<<<< Updated upstream
 </head>
 
 <body>
     <h1>team project</h1>
+=======
+    <script src="https://kit.fontawesome.com/89aa44206f.js" crossorigin="anonymous"></script>
+    <script>
+      (function(d) {
+        var config = {
+          kitId: 'opa6qnt',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
+  </head>
+
+<body>
+  <footer class="clearfix">
+    <h1 class="footerlogo">team project</h1>
+    <ul class="footer-nav">
+      <li class="rightyose"><a href="{% url 'post' %}"><i class="fas fa-pen"></i></a></li>
+      <li class="rightyose"><a href="{% url 'registration' %}">新規登録</a></li>
+      {% if user.is_anonymous %}
+      <a href="{% url 'Login' %}">ログイン</a>
+      {% else %}
+      <a href="{% url 'Logout' %}">ログアウト</a>
+      {% endif %}
+    </ul>
+  </footer>
+>>>>>>> Stashed changes
     <p></p>
     
 
     <br>
+<<<<<<< Updated upstream
     <div>
       <a href="{% url 'index' %}?sort=date">Sort by Date</a>
       <a href="{% url 'index' %}?sort=like">Sort by Like</a>
       <a href="{% url 'post' %}">投稿</a>
       <a href="{% url 'registration' %}">新規登録</a>
+=======
+    <div class="textfont">
+      <div class="blockleft">
+>>>>>>> Stashed changes
       {% if user.is_anonymous %}
       <a href="{% url 'Login' %}">ログイン</a>
       {% else %}
@@ -28,10 +62,17 @@
       <h1><font color="red">ゲスト</font>さんようこそ！！</h1>
       {% else %}
       <h1><font color="red">{{ UserID }}</font>さんようこそ！！</h1>
-      <p> ログアウトは
-        <a href="{% url 'Logout' %}">こちら</a>
-        </p>
-      {% endif %}
+     
+      {% endif %}</div>
+      <div class="blockright">
+      <ul class="menu">
+        <li><a href="">並び順</a>
+           <ul>
+            <li class="rightyose"><a href="{% url 'index' %}?sort=date">Sort by Date</a></li>
+            <li class="rightyose"><a href="{% url 'index' %}?sort=like">Sort by Like</a></li>
+           </ul>
+        </li>
+      </ul>
     </div>
     {% if articles %}
     {% for article in articles %}
@@ -59,5 +100,10 @@
     {% else %}
     <h2>No article</h2>
     {% endif %}
+<<<<<<< Updated upstream
+=======
+  </div>
+  <a href="{% url 'index' %}" id="page-top">topへ</a>
+>>>>>>> Stashed changes
   </body>
 </html>
