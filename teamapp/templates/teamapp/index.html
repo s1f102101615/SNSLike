@@ -43,10 +43,7 @@
     <br>
     <div class="textfont">
       <div class="blockleft">
-      {% if user.is_anonymous %}
-      <a href="{% url 'Login' %}">ログイン</a>
-      {% else %}
-      {% endif %}
+      
       {% if user.is_anonymous %}
       <h1><font color="red">ゲスト</font>さんようこそ！！</h1>
       {% else %}
@@ -55,7 +52,7 @@
       {% endif %}</div>
       <div class="blockright">
       <ul class="menu">
-        <li><a href="">並び順</a>
+        <li><a href="">並び順    <i class="fas fa-chevron-down" id="down"></i></a>
            <ul>
             <li class="rightyose"><a href="{% url 'index' %}?sort=date">投稿順</a></li>
             <li class="rightyose"><a href="{% url 'index' %}?sort=like">いいね順</a></li>
@@ -67,24 +64,24 @@
     {% for article in articles %}
     <div class="text">
     <!--アカウント追加-->
-    <div>
+    <div class="bordersolid">
     {% if article.post_user %}
     {{ article.post_user }}
     {% endif %}
-    </div>
+    
     <small>[{{ article.posted_at }}]</small>
+    
     <div>
-      
-    </div>
-    <div>
-      <img src={{ article.image }} alt="">
+      <img class="img-size" src={{ article.image }} alt="">
     </div>
     <div>
       {{ article.body | linebreaksbr }}
-    </div></div>
+    </div>
     <a href="" onclick="like({{article.id}});">
-      Like: <span id="like{{article.id}}">{{ article.like }}</span>
+      <i class="fas fa-heart" id="heart"></i><span id="{{article.id}}">{{ article.like }}</span>
     </a>
+      
+    </div></div>
     {% endfor %}
     {% else %}
     <h2>No article</h2>
