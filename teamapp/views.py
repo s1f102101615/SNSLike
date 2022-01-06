@@ -157,3 +157,23 @@ def Logout(request):
     return HttpResponseRedirect(reverse('index'))
 
 
+def userpage(request):
+    userpageid = request.GET['userpageid']
+    if ('sort' in request.GET):
+        if request.GET['sort'] == 'like':
+            articles = Article.objects.order_by('-like')
+        else:
+            articles = Article.objects.order_by('-posted_at')
+    else:
+        articles = Article.objects.order_by('-posted_at')
+    form = Goto_form()
+    articles = Article.objects.filter(post_user = userpageid)
+    context = {
+        "articles": articles,
+        "form":form,
+        "UserID":request.user
+    }
+    
+    return render(request, 'teamapp/userpage.html', context)
+
+

@@ -9,5 +9,6 @@ urlpatterns = [
     path('Login',views.Login,name='Login'),
     path("Logout",views.Logout,name="Logout"),
     path('<int:article_id>/like',views.like, name='like'),
+    path("userpage",views.userpage,name="userpage")
 
 ]

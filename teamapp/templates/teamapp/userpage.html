@@ -39,11 +39,7 @@
       {% if user.is_anonymous %}
       <a href="{% url 'Login' %}">ログイン</a>
       {% else %}
-      {% endif %}
-      {% if user.is_anonymous %}
-      <h1><font color="red">ゲスト</font>さんようこそ！！</h1>
-      {% else %}
-      <h1><font color="red">{{ UserID }}</font>さんようこそ！！</h1>
+      <h1><font color="red">{{ UserID }}</font>さんの投稿一覧</h1>
       <p> ログアウトは
         <a href="{% url 'Logout' %}">こちら</a>
         </p>
@@ -53,13 +49,12 @@
     {% for article in articles %}
     <div class="text">
     <!--アカウント追加-->
+    {{ userpageid }}
     <div>
-    <a href="{% url 'userpage'%}?userpageid={{article.post_user}}">{{ article.post_user }}</a>
+    {{ article.post_user }}
     </div>
     <small>[{{ article.posted_at }}]</small>
-    <div>
-      
-    </div>
+
     <div>
       <img src={{ article.image }} alt="">
     </div>
