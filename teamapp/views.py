@@ -173,10 +173,12 @@ def userpage(request):
     userpageid = request.GET['userpageid']
     if ('sort' in request.GET):
         if request.GET['sort'] == 'like':
-            articles = Article.objects.order_by('-like')
+            articles = Article.objects.order_by('-like').filter(post_user = userpageid)
         else:
+            articles = Article.objects.filter(post_user = userpageid)
             articles = Article.objects.order_by('-posted_at')
     else:
+        articles = Article.objects.filter(post_user = userpageid)
         articles = Article.objects.order_by('-posted_at')
     form = Goto_form()
     articles = Article.objects.filter(post_user = userpageid)
