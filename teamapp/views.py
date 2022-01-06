@@ -20,11 +20,13 @@ def index(request):
             articles = Article.objects.order_by('-posted_at')
     else:
         articles = Article.objects.order_by('-posted_at')
-    form = Goto_form()
+    r = 1
+    if not request.user.is_anonymous:
+        r = Account.objects.get(user_id = request.user).account_image
     context = {
         "articles": articles,
-        "form":form,
         "UserID":request.user,
+        'icon': r
     }
     
     return render(request, 'teamapp/index.html', context)
@@ -51,6 +53,7 @@ def post(request):
             article.body = request.POST['body']
         #アカウント    
         article.post_user = request.user
+        article.icon_path = Account.objects.get(user_id = request.user).account_image
         article.save()
         return redirect('index')
     return render(request, 'teamapp/post.html', {'form': form,'UserID': request.user})
@@ -174,19 +177,23 @@ def userpage(request):
     userpageid = request.GET['userpageid']
     if ('sort' in request.GET):
         if request.GET['sort'] == 'like':
-            articles = Article.objects.order_by('-like').filter(post_user = userpageid)
+            articles = Article.objects.filter(post_user = userpageid).order_by('-like')
         else:
-            articles = Article.objects.filter(post_user = userpageid)
-            articles = Article.objects.order_by('-posted_at')
+            articles = Article.objects.filter(post_user = userpageid).order_by('-posted_at')
     else:
-        articles = Article.objects.filter(post_user = userpageid)
-        articles = Article.objects.order_by('-posted_at')
+        articles = Article.objects.filter(post_user = userpageid).order_by('-posted_at')
     form = Goto_form()
-    articles = Article.objects.filter(post_user = userpageid)
+    articles = Article.objects.filter(post_user = userpageid).order_by('-posted_at')
+
+    if not request.user.is_anonymous:
+        r = Account.objects.get(user_id = request.user).account_image
+    else:
+        r = 0
     context = {
         "articles": articles,
         "form":form,
-        "UserID":request.user
+        "UserID":request.user,
+        'icon':r
     }
     
     return render(request, 'teamapp/userpage.html', context)

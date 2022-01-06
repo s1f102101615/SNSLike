@@ -29,11 +29,25 @@
     <a href="{% url 'index' %}"><h1 class="footerlogo">Team project</h1></a>
     <ul class="footer-nav" style="margin-top: 6px;" >
       {% if user.is_anonymous %}
-      <li class="rightyose"><font color="006CC9"><a href=""> ゲスト</a></font></li>
+      <li class="rightyose"><font color="006CC9">
+        <img class="icon-size" src="Article-image/guest.png" alt="">
+        ゲスト</font></li>
+      {% elif icon %}
+      <li class="rightyose">
+        <font color="006CC9"><a href="{% url 'userpage'%}?userpageid={{ UserID }}">
+          <img class="icon-size" src={{ icon }} alt="">
+          {{ UserID }}
+        </font></a>
+      </li>
       {% else %}
-      <li class="rightyose"><img class="icon-size" src=/icon-mage/{{ icon }} alt=""></li>
-      <li class="rightyose"><font color="006CC9"><a href="{% url 'userpage'%}?userpageid={{ UserID }}">{{ UserID }}</font></a></li>
+      <li class="rightyose">
+        <font color="006CC9"><a href="{% url 'userpage'%}?userpageid={{ UserID }}">
+          <img class="icon-size" src="Article-image/guest.png" alt="">
+          {{ UserID }}
+        </font></a>
+      </li>
       {% endif %}
+      
       <li class="rightyose"><a href="{% url 'post' %}"><i class="fas fa-pen"></i></a></li>
       <li class="rightyose"><a href="{% url 'registration' %}">新規登録</a></li>
       {% if user.is_anonymous %}
@@ -65,7 +79,14 @@
     <!--アカウント追加-->
     <div class="bordersolid">
     <div>
-    <a href="{% url 'userpage'%}?userpageid={{article.post_user}}">{{ article.post_user }}</a>
+    <a href="{% url 'userpage'%}?userpageid={{article.post_user}}">
+      {% if article.icon_path != '0'%}
+      <img class="icon-size" src={{ article.icon_path }} alt="">
+      {% else %}
+      <img class="icon-size" src="Article-image/guest.png" alt="">
+      {% endif %}
+      {{ article.post_user }}
+    </a>
     </div>
     <small>[{{ article.posted_at }}]</small>
     

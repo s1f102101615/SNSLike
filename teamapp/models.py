@@ -13,6 +13,7 @@ class Article(models.Model):
     ## published_at = models.DateTimeField(blank=True, null=True)
     like = models.IntegerField(default=0)
     post_user = models.TextField(max_length=150,default=0)
+    icon_path = models.TextField(max_length=150,default=0)
     
     #def publish(self):
         #self.published_at = timezone.now()
@@ -31,7 +32,7 @@ class Account(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     #アカウント画像
-    account_image = models.ImageField(upload_to="profile_pics",blank=True)
+    account_image = models.ImageField(upload_to="Article-image",blank=True,null=True)
 
     def __str__(self):
         return self.user.username
