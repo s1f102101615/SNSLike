@@ -175,3 +175,11 @@ html {
 .menu-rightyose {
     float: right;
 }
+
+.none-under a {
+    text-decoration: none;
+}
+
+.hover-color a:hover {
+    color: brown;
+}

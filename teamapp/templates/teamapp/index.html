@@ -78,7 +78,8 @@
     <div class="text">
     <!--アカウント追加-->
     <div class="bordersolid">
-    <div>
+    <div class="none-under">
+    <div class="hover-color">
     <a href="{% url 'userpage'%}?userpageid={{article.post_user}}">
       {% if article.icon_path != '0'%}
       <img class="icon-size" src={{ article.icon_path }} alt="">
@@ -86,7 +87,7 @@
       <img class="icon-size" src="Article-image/guest.png" alt="">
       {% endif %}
       {{ article.post_user }}
-    </a>
+    </a></div>
     </div>
     <small>[{{ article.posted_at }}]</small>
     
@@ -96,9 +97,10 @@
     <div>
       {{ article.body | linebreaksbr }}
     </div>
+    <div class="none-under">
     <a href=""  onclick="like({{article.id}});" class="like">
-      <i class="fas fa-heart" id="heart"></i><span id="{{article.id}}">{{ article.like }}</span>
-    </a>
+      <i class="fas fa-heart" id="heart"></i><span id="{{article.id}}" >{{ article.like }}</span>
+    </a></div>
       
     </div></div>
     {% endfor %}

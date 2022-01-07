@@ -68,3 +68,20 @@ a:visited {
 footer a:hover {
   color: brown;
 }
+.home-btn {
+  text-decoration: none;
+  background-color: rgb(200, 252, 196);
+  border-radius: 5px;
+  padding: 10px 20px;
+  float: right;
+  margin-right: 15%;
+  margin-top: 20px;
+  bottom: 30px;
+  display: block;
+}
+
+.home-btn:hover {
+  background: rgb(46, 147, 241);
+  color: black;
+  transition: 1s;
+}
